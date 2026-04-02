@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal } from "lucide-react";
+import { Terminal, Bug, Search } from "lucide-react";
 
 const getIconUrl = (name: string, categoryColor: string) => {
   const slugs: Record<string, string> = {
@@ -12,7 +12,7 @@ const getIconUrl = (name: string, categoryColor: string) => {
     'Kali Linux': 'kalilinux', 'Wireshark': 'wireshark', 'Docker': 'docker',
     'MongoDB': 'mongodb', 'MySQL': 'mysql', 'Cloudinary': 'cloudinary', 'Netlify': 'netlify',
     'Git': 'git', 'GitHub': 'github', 'Linux': 'linux', 'VS Code': 'visualstudiocode', 'Jupyter Notebook': 'jupyter',
-    'Razorpay': 'razorpay', 'Unity': 'unity', 'Solidworks': 'solidworks'
+    'Razorpay': 'razorpay', 'Unity': 'unity', 'Solidworks': 'solidworks', 'Nmap': 'nmap', 'Burp Suite': 'burpsuite'
   };
   const slug = slugs[name];
   if (!slug) return null;
@@ -99,7 +99,7 @@ export function Skills() {
       {/* Removed stopPropagation so clicking empty transparent space dismisses the rings */}
       <div className="relative w-full max-w-[1000px] h-[450px] sm:h-[650px] md:h-[900px] flex items-center justify-center">
         {/* Responsive scaling wrapper */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[0.35] sm:scale-[0.55] md:scale-[0.75] lg:scale-100 transition-transform duration-500 w-[800px] h-[800px] pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[0.45] sm:scale-[0.55] md:scale-[0.75] lg:scale-100 transition-transform duration-500 w-[800px] h-[800px] pointer-events-none">
           
           {/* Center Hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
@@ -203,8 +203,12 @@ export function Skills() {
                           >
                              {iconUrl ? (
                                <img src={iconUrl} alt={skill} className="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] pointer-events-none" />
+                             ) : skill === 'Autopsy' ? (
+                               <Search size={22} className={`pointer-events-none ${cat.color === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-purple'}`} />
+                             ) : skill === 'XSS' ? (
+                               <Bug size={22} className={`pointer-events-none ${cat.color === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-purple'}`} />
                              ) : (
-                               <Terminal size={24} className={`pointer-events-none ${cat.color === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-purple'}`} />
+                               <Terminal size={22} className={`pointer-events-none ${cat.color === 'neon-cyan' ? 'text-neon-cyan' : 'text-neon-purple'}`} />
                              )}
                           </div>
 
@@ -237,6 +241,18 @@ export function Skills() {
           })}
         </div>
       </div>
+
+      {/* Usage Disclaimer */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 1, duration: 1 }}
+        className="mt-8 text-center text-sm sm:text-base text-gray-400 max-w-md px-4 relative z-20 pointer-events-none flex flex-col items-center gap-2"
+      >
+        <span className="hidden sm:inline">👆 Hover over the distinct nodes in the orbit to explore the tech stack</span>
+        <span className="inline sm:hidden">👆 Tap on the nodes in the orbit to explore the tech stack</span>
+      </motion.p>
     </section>
   );
 }

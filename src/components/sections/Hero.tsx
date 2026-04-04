@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-      <div className="z-10 flex flex-col items-start justify-center -mt-20 w-full max-w-5xl px-8">
+      <div className="z-10 flex flex-col items-start justify-center mt-16 sm:mt-20 w-full max-w-5xl px-4 sm:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,17 +41,17 @@ export function Hero() {
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ delay: 0.8, duration: 0.8 }}
-           className="flex flex-col sm:flex-row items-center justify-center self-center w-full gap-6 cursor-none mb-10"
+           className="flex flex-row items-center justify-center self-center w-full gap-3 sm:gap-6 cursor-none mb-10"
         >
           <button 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
+            className="px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
           >
             View My Work
           </button>
           <button 
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
+            className="px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
           >
             Contact Me
           </button>
@@ -71,7 +71,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
+        className="absolute bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
       >
         <span className="text-xs text-gray-500 uppercase tracking-widest mb-2 font-mono">Scroll</span>
         <motion.div

@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-      <div className="z-10 flex flex-col items-start justify-center mt-16 sm:mt-20 w-full max-w-5xl px-4 sm:px-8">
+    <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden pt-32 md:pt-40 pb-32">
+      <div className="z-10 flex flex-col items-start justify-center w-full max-w-5xl px-4 sm:px-8 mt-4 md:mt-0">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,17 +41,17 @@ export function Hero() {
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ delay: 0.8, duration: 0.8 }}
-           className="flex flex-row items-center justify-center self-center w-full gap-3 sm:gap-6 cursor-none mb-10"
+           className="flex flex-row items-center justify-center self-center w-full gap-2 sm:gap-6 cursor-none mb-10"
         >
           <button 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
+            className="px-3 py-3 sm:px-8 sm:py-4 text-xs sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
           >
             View My Work
           </button>
           <button 
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
+            className="px-3 py-3 sm:px-8 sm:py-4 text-xs sm:text-base whitespace-nowrap rounded-full border border-white text-white font-bold tracking-wide hover:border-neon-cyan hover:text-neon-cyan hover:bg-neon-cyan/10 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] active:scale-95 transition-all duration-300"
           >
             Contact Me
           </button>

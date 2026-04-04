@@ -171,7 +171,7 @@ export function Projects() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 perspective-1000">
+        <div className="grid grid-cols-1 gap-8 perspective-1000 w-full mb-12">
           {research.map((res, i) => (
             <TiltCard key={`res-${i}`} project={res} index={i} />
           ))}

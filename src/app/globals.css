@@ -56,3 +56,22 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
+/* Hero Typography Styles */
+.greeting-gradient {
+  background: linear-gradient(to right, #ffffff, #9CA3AF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+
+.name-gradient {
+  color: #0ef;
+}
+
+.name-glow {
+  text-shadow: 
+    0 0 8px rgba(0, 238, 255, 0.2), 
+    0 4px 10px rgba(0, 0, 0, 0.4);
+}

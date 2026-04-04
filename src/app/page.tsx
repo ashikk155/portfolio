@@ -1,6 +1,7 @@
-import { StarsCanvas } from "@/components/3d/Stars";
+import { NeuralParticles } from "@/components/3d/NeuralParticles";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Focus } from "@/components/sections/Focus";
 import { Experience } from "@/components/sections/Experience";
 import { Certifications } from "@/components/sections/Certifications";
 import { Projects } from "@/components/sections/Projects";
@@ -10,8 +11,9 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <main className="flex flex-col w-full min-h-screen relative">
-      <StarsCanvas />
+      <NeuralParticles />
       <Hero />
+      <Focus />
       <About />
       <Experience />
       <Projects />

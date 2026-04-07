@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export function Experience() {
   const experiences = [
@@ -11,10 +12,12 @@ export function Experience() {
       date: "2025",
       type: "work",
       points: [
-        "Developed a Django-based service booking system with Admin, User, and Employee roles.",
-        "Integrated Razorpay for secure online payments.",
-        "Designed dashboards for booking and job tracking.",
+        "Designed and developed backend using Django",
+        "Implemented role-based authentication (Admin, User, Employee)",
+        "Integrated Razorpay payment gateway",
+        "Built dashboards for tracking bookings and job status",
       ],
+      tech: ["Django", "Python", "Razorpay", "HTML", "CSS", "JS"]
     }
   ];
 
@@ -47,19 +50,48 @@ export function Experience() {
               </div>
 
               {/* Card */}
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl hover:border-neon-cyan/50 transition-colors duration-500 group relative overflow-hidden text-right w-full sm:w-2/3 lg:w-1/2">
-                <div className="absolute inset-0 bg-gradient-to-l from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-neon-purple text-sm font-mono font-semibold tracking-wider">{exp.date}</span>
-                <h3 className="text-2xl font-bold mt-2 text-white group-hover:text-glow transition-all">{exp.title}</h3>
-                <h4 className="text-lg text-gray-400 font-medium mb-4">{exp.company}</h4>
-                <ul className="space-y-2 flex flex-col items-end">
-                  {exp.points.map((pt, j) => (
-                    <li key={j} className="text-gray-300 text-sm flex gap-3 leading-relaxed flex-row-reverse">
-                      <span className="text-neon-cyan mt-1">◂</span> <span className="text-left">{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <motion.div 
+                whileHover={{ y: -12, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-12 rounded-[2.5rem] hover:border-neon-cyan/50 hover:shadow-[0_0_50px_rgba(34,211,238,0.15)] hover:bg-white/10 transition-all duration-300 group relative overflow-hidden text-right w-full sm:w-5/6 lg:w-4/5"
+              >
+                <div className="absolute inset-0 bg-gradient-to-l from-neon-cyan/5 via-transparent to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <span className="text-neon-purple text-xs sm:text-sm font-mono font-semibold tracking-widest bg-neon-purple/10 px-4 py-1.5 rounded-full border border-neon-purple/20">{exp.date}</span>
+                  <h3 className="text-2xl sm:text-4xl font-bold mt-6 text-white group-hover:text-glow transition-all tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>{exp.title}</h3>
+                  <h4 className="text-lg sm:text-xl text-gray-400 font-medium mb-8 flex flex-row-reverse items-center gap-2">
+                    <span className="w-4 h-[1px] bg-gray-600"></span> {exp.company}
+                  </h4>
+                  
+                  <ul className="space-y-4 flex flex-col items-end">
+                    {exp.points.map((pt, j) => (
+                      <li key={j} className="text-gray-300 text-base sm:text-lg flex gap-4 leading-relaxed flex-row-reverse text-right group/item">
+                        <span className="text-neon-cyan mt-1.5 transition-transform group-hover/item:-translate-x-1 group-hover/item:scale-125">◂</span> 
+                        <span className="group-hover:text-white transition-colors duration-300">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-10 flex flex-wrap gap-2 justify-end">
+                    {exp.tech.map((t, i) => (
+                      <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neon-purple whitespace-nowrap hover:border-neon-purple/50 transition-colors">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-10 flex justify-end">
+                    <Link 
+                      href="/projects/wecare"
+                      className="group/btn flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-neon-cyan hover:border-neon-cyan/50 hover:bg-neon-cyan/10 transition-all duration-300"
+                    >
+                      <span className="text-sm font-bold tracking-wide">View Project</span>
+                      <ArrowUpRight size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

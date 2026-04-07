@@ -1,9 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export function Hero() {
+  const [index, setIndex] = useState(0);
+  const titles = [
+    "Software Engineer",
+    "Machine Learning Engineer",
+    "Full-Stack Developer",
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % titles.length);
+    }, 2500); // Increased slightly for better readability (2s visible + transition)
+    return () => clearInterval(timer);
+  }, [titles.length]);
+
   return (
     <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden pt-32 md:pt-40 pb-32">
       <div className="z-10 flex flex-col items-start justify-center w-full max-w-5xl px-4 sm:px-8 mt-4 md:mt-0">
@@ -28,14 +43,24 @@ export function Hero() {
           </motion.span>
         </h1>
 
-        <motion.p
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 0.6, duration: 1 }}
-           className="text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple mt-6 mb-8 uppercase font-mono self-center text-center"
-        >
-          Think. Build. Scale.
-        </motion.p>
+        <div className="h-10 sm:h-12 md:h-14 flex items-center justify-center self-center w-full mt-6 mb-8 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ 
+                duration: 0.6, 
+                ease: [0.22, 1, 0.36, 1] // Custom smooth easing
+              }}
+              className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#9CA3AF] hover:text-white transition-colors duration-300 text-center cursor-default"
+              style={{ fontFamily: 'var(--font-syne)' }}
+            >
+              {titles[index]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
         <motion.div
            initial={{ opacity: 0, y: 20 }}

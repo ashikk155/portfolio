@@ -11,9 +11,10 @@ export function About() {
       date: "2023 - 2027",
       type: "edu",
       points: [
-        "Honors in Cyber Security.",
+        "Specializing in Artificial Intelligence & Machine Learning, with Honors in Cyber Security",
         "CGPA: 7.99 / 10",
-        "Active member of NSS, CSA, IIIC, and ACC Logistics Head.",
+        "Actively contributed and led initiatives across clubs and associations (CSA, ACC, IIIC)",
+        "Worked on projects in AI/ML, full-stack development, and system design",
       ],
     },
     {
@@ -22,7 +23,8 @@ export function About() {
       date: "2023",
       type: "edu",
       points: [
-        "Completed with 96% in core subjects.",
+        "Completed higher secondary education with 96% in core subjects",
+        "Volunteered in NSS (National Service Scheme) and Bharat Scouts & Guides",
       ],
     },
   ];
@@ -59,19 +61,30 @@ export function About() {
               </div>
 
               {/* Card */}
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl hover:border-neon-purple/50 transition-colors duration-500 group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transition-none" />
-                <span className="text-neon-cyan text-sm font-mono font-semibold tracking-wider">{exp.date}</span>
-                <h3 className="text-2xl font-bold mt-2 text-white group-hover:text-glow transition-all">{exp.title}</h3>
-                <h4 className="text-lg text-gray-400 font-medium mb-4">{exp.company}</h4>
-                <ul className="space-y-2">
-                  {exp.points.map((pt, j) => (
-                    <li key={j} className="text-gray-300 text-sm flex gap-3 leading-relaxed">
-                      <span className="text-neon-purple mt-1">▹</span> {pt}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <motion.div 
+                whileHover={{ y: -12, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-12 rounded-[2rem] hover:border-neon-cyan/50 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 via-transparent to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <span className="text-neon-cyan text-xs sm:text-sm font-mono font-semibold tracking-widest bg-neon-cyan/10 px-4 py-1.5 rounded-full border border-neon-cyan/20">{exp.date}</span>
+                  <h3 className="text-2xl sm:text-4xl font-bold mt-6 text-white group-hover:text-glow transition-all tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>{exp.title}</h3>
+                  <h4 className="text-lg sm:text-xl text-gray-400 font-medium mb-8 flex items-center gap-2">
+                    <span className="w-4 h-[1px] bg-gray-600"></span> {exp.company}
+                  </h4>
+                  
+                  <ul className="space-y-4">
+                    {exp.points.map((pt, j) => (
+                      <li key={j} className="text-gray-300 text-base sm:text-lg flex gap-4 leading-relaxed group/item">
+                        <span className="text-neon-purple mt-1.5 transition-transform group-hover/item:translate-x-1 group-hover/item:scale-125">▹</span> 
+                        <span className="group-hover:text-white transition-colors duration-300">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
